@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  test-app:
+    container_name: test-app-container
+    image: test-app-container
+    build: 
+      context: .
+      dockerfile: ./tests/Dockerfile
+  app:
+    container_name: app-container
+    image: app-container
+    build: 
+      context: .
+      dockerfile: ./app/Dockerfile
