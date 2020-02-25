@@ -30,8 +30,11 @@ def make_cli_parser():
 def main(argv=None):
     cli_parser = make_cli_parser()
     args = cli_parser.parse_args(argv)
-    for word in args.words:
-        print("{} is a Palindrome? {}".format(word, isPalindrome(word)))
+    try:
+       for word in args.words:
+           print("{} is a Palindrome? {}".format(word, isPalindrome(word)))
+    except:
+       cli_parser.print_help()
 
 
 if __name__ == '__main__':
