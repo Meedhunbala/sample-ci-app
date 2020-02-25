@@ -1,0 +1,23 @@
+jenkins:
+  systemMessage: "Jobs are automatically via plugin\n\n"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+jobs:
+  - script: >
+      pipelineJob('sample-ci-app') {
+          definition {
+              cpsScm {
+                  scriptPath 'Jenkinsfile'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/Meedhunbala/sample-ci-app.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      }

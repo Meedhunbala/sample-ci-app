@@ -1,0 +1,9 @@
+workflow-aggregator:latest
+blueocean:latest
+pipeline-maven:latest
+configuration-as-code:latest
+job-dsl:latest
+git:latest
+matrix-auth:latest
+docker-workflow:latest
+credentials-binding:latest
