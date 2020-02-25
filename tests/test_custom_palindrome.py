@@ -38,17 +38,16 @@ class TestArgumentsParsers(unittest.TestCase):
         self.cli_parser = make_cli_parser()
 
     def test_arguments(self):
-        args = ['test']
+        args = ['--words', 'madam masd']
         args_namespace = self.cli_parser.parse_args(args)
-        expected_arguments = "test"
+        expected_arguments = ["madam masd"]
 
-        self.assertEqual(expected_arguments, args_namespace.word)
+        self.assertEqual(expected_arguments, args_namespace.words)
 
     def test_no_arguments_passed(self):
         args = []
-        self.assertRaises(SystemExit,
-                          self.cli_parser.parse_args,
-                          args)
+        args = self.cli_parser.parse_args(args)
+        self.assertEqual(None, args.words)
 
 
 if __name__ == '__main__':

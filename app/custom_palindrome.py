@@ -21,7 +21,8 @@ def isPalindrome(word):
 def make_cli_parser():
     cli_parser = argparse.ArgumentParser(add_help=True)
     cli_parser.add_argument(
-        'word',
+        '--words',
+        nargs="+",
         help="string to verify..")
     return cli_parser
 
@@ -29,7 +30,8 @@ def make_cli_parser():
 def main(argv=None):
     cli_parser = make_cli_parser()
     args = cli_parser.parse_args(argv)
-    print("Given string is a Palindrome? {}".format(isPalindrome(args.word)))
+    for word in args.words:
+        print("{} is a Palindrome? {}".format(word, isPalindrome(word)))
 
 
 if __name__ == '__main__':
